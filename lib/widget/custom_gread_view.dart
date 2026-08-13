@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/model/model.dart';
-import 'package:store/widget/CustomContainer.dart';
+import 'package:store/widget/custom_container.dart';
 
 class GriedViewWidget extends StatelessWidget {
   const GriedViewWidget({

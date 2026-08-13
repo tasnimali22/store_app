@@ -1,16 +1,16 @@
-import 'package:store/context/const.dart';
 import 'package:store/helper/api.dart';
 import 'package:store/model/model.dart';
 
 class CategoryNameServices {
   Future<List<ProductsModel>> getAllCategoryName({
+    // ignore: non_constant_identifier_names
     required String category_name,
   }) async {
     Map<String, dynamic> Data = await Api()
         .get(url: "https://dummyjson.com/products/category/$category_name");
 
     List<dynamic> producctsData = Data["products"];
-    List<ProductsModel> CategoryNameList = [];
+    List<ProductsModel> categoryNameList = [];
 
     return producctsData.map((e) => ProductsModel.fromJson(e)).toList();
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFiled extends StatelessWidget {
-  CustomTextFiled({
+  const CustomTextFiled({
     this.onSubmitted,
     this.textInputType,
     this.onchanged,
@@ -27,11 +27,12 @@ class CustomTextFiled extends StatelessWidget {
       onChanged: onchanged,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: TextStyle(color: Colors.grey),
-        enabledBorder: OutlineInputBorder(
+        hintStyle: const TextStyle(color: Colors.grey),
+        enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.grey),
         ),
-        border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+        border: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey)),
       ),
     );
   }

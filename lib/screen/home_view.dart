@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:store/Screen/cateogryNameScreen.dart';
+import 'package:store/screen/cateogry_name_screen.dart';
 import 'package:store/model/model.dart';
-import 'package:store/services/AllProduces.dart';
-import 'package:store/widget/CustomContainer.dart';
-import 'package:store/widget/customGreadView.dart';
+import 'package:store/services/all_produces.dart';
+import 'package:store/widget/custom_gread_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -18,7 +17,6 @@ class _HomeViewState extends State<HomeView> {
   late Future<List<ProductsModel>> productsFuture;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     productsFuture = AllProducts().getAllProduces();
   }
@@ -33,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
             onPressed: () {
               Navigator.pushNamed(context, CateogrynameScreen.id);
             },
-            icon: Icon(Icons.search)),
+            icon: const Icon(Icons.search)),
         centerTitle: true,
         title: const Text("Store", style: TextStyle(color: Colors.black)),
         actions: [

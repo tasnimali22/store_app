@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:store/model/model.dart';
-import 'package:store/services/categoryName.dart';
-import 'package:store/widget/CustomTextFiled.dart';
-import 'package:store/widget/customGreadView.dart';
+import 'package:store/services/category_name.dart';
+import 'package:store/widget/custom_text_filed.dart';
+import 'package:store/widget/custom_gread_view.dart';
 
 class CateogrynameScreen extends StatefulWidget {
   const CateogrynameScreen({super.key});
@@ -13,10 +13,9 @@ class CateogrynameScreen extends StatefulWidget {
   State<CateogrynameScreen> createState() => _CateogrynameScreenState();
 }
 
-Future<List<ProductsModel>>? CatorgyNameFuture;
+Future<List<ProductsModel>>? catorgyNameFuture;
 final TextEditingController controller = TextEditingController();
 
-@override
 class _CateogrynameScreenState extends State<CateogrynameScreen> {
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class _CateogrynameScreenState extends State<CateogrynameScreen> {
             controller: controller,
             onSubmitted: (value) {
               setState(() {
-                CatorgyNameFuture = CategoryNameServices()
+                catorgyNameFuture = CategoryNameServices()
                     .getAllCategoryName(category_name: value);
                 controller.clear();
               });
@@ -43,15 +42,15 @@ class _CateogrynameScreenState extends State<CateogrynameScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8),
-        child: CatorgyNameFuture == null
-            ? Center(
+        child: catorgyNameFuture == null
+            ? const Center(
                 child: Text("Search for a category"),
               )
             : FutureBuilder(
-                future: CatorgyNameFuture,
+                future: catorgyNameFuture,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   } else if (snapshot.hasData) {

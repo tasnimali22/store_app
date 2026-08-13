@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:store/context/const.dart';
 import 'package:store/model/model.dart';
-import 'package:store/services/updateProduct.dart';
-import 'package:store/widget/CustomTextFiled.dart';
-import 'package:store/widget/customButton.dart';
+import 'package:store/widget/custom_text_filed.dart';
+import 'package:store/widget/custom_button.dart';
 
 class UpdateproductScreen extends StatefulWidget {
-  UpdateproductScreen({super.key});
+  const UpdateproductScreen({super.key});
 
   static String id = "updateproduct";
 
@@ -26,7 +25,8 @@ class _UpdateproductScreenState extends State<UpdateproductScreen> {
       inAsyncCall: isLoading,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Updateproduct", style: TextStyle(color: Colors.black)),
+          title: const Text("Updateproduct",
+              style: TextStyle(color: Colors.black)),
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
@@ -37,7 +37,7 @@ class _UpdateproductScreenState extends State<UpdateproductScreen> {
               children: [
                 CustomTextFiled(
                     onchanged: (data) {
-                      NameProduct = data;
+                      nameProduct = data;
                     },
                     hintText: " Name Product"),
                 const SizedBox(height: 10),
@@ -65,8 +65,7 @@ class _UpdateproductScreenState extends State<UpdateproductScreen> {
                       isLoading = true;
                       setState(() {});
                       try {
-                        await Update(products);
-                        print("sucess");
+                        await update(products);
                       } catch (e) {
                         print(e.toString());
                       }

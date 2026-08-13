@@ -5,17 +5,16 @@ class AllProducts {
   Future<List<ProductsModel>> getAllProduces() async {
     try {
       var responsedata = await Api().get(url: "https://dummyjson.com/products");
-      List<dynamic> Data = responsedata["products"];
+      List<dynamic> data = responsedata["products"];
 
-      List<ProductsModel> AllListProduces = [];
-      for (int i = 0; i < Data.length; i++) {
-        AllListProduces.add(ProductsModel.fromJson(Data[i]));
+      List<ProductsModel> allListProduces = [];
+      for (int i = 0; i < data.length; i++) {
+        allListProduces.add(ProductsModel.fromJson(data[i]));
       }
-      return AllListProduces;
+      return allListProduces;
     } on Exception catch (e) {
-      print("Error: $e");
       return [];
-      // TODO
+      // TODOA
     }
   }
 }
