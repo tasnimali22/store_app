@@ -1,16 +1,18 @@
-# store
+# 📱 store_app
 
-A new Flutter project.
+تطبيق Flutter منظم وفق هيكلية الطبقات (Layer-Based Architecture) لسهولة إدارة المكونات وإعادة استخدام عناصر واجهة المستخدم.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📁 هيكلية المشروع (Project Structure)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```text
+lib/
+├── context/       # إدارة السياق، الثوابت العامة، أو الـ BuildContext extensions
+├── custom/        # العناصر والمكونات المخصصة (Custom UI Components)
+├── helper/        # الأدوية المساعدة والمشركات (Utility classes & Helper functions)
+├── model/         # نماذج البيانات (Data Models & Parsers)
+├── screen/        # شاشات التطبيق الرئيسية (UI Screens/Pages)
+├── services/      # الخدمات الخارجية (API Requests, Firebase, Storage)
+├── widget/        # العناصر الشائعة وإعادة الاستخدام (Reusable Widgets)
+└── main.dart      # نقطة انطلاق التطبيق الرئيسية
